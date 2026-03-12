@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/payments/health"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 5000,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": { "status": "OK", "note": "Delayed by 5s" }
+  }
+}

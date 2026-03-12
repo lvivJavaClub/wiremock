@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/api/users/[0-9]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "id": "{{request.pathSegments.[2]}}",
+      "firstName": "{{random 'Name.first_name'}}",
+      "lastName": "{{random 'Name.last_name'}}",
+      "email": "{{random 'Internet.email_address'}}",
+      "phone": "{{random 'PhoneNumber.phone_number'}}",
+      "address": {
+        "street": "{{random 'Address.street_address'}}",
+        "city": "{{random 'Address.city'}}",
+        "state": "{{random 'Address.state'}}",
+        "zipCode": "{{random 'Address.zip_code'}}"
+      },
+      "company": "{{random 'Company.name'}}",
+      "jobTitle": "{{random 'Job.title'}}"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/shipments"
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "body": "{ \"message\": \"Shipment created for order {{jsonPath request.body '$.orderId'}}\", \"tracking\": \"TRK-{{randomValue length=8 type='ALPHANUMERIC'}}\" }"
+  }
+}

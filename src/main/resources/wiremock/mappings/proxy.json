@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/proxy/(.*)"
+  },
+  "response": {
+    "proxyBaseUrl": "https://jsonplaceholder.typicode.com",
+    "proxyUrlPrefixToRemove": "/proxy",
+    "delayDistribution": {
+      "type": "lognormal",
+      "median": 1000,
+      "sigma": 0.2
+    },
+    "jsonBody": {
+      "message": "Intercepted by WireMock"
+    }
+  }
+}

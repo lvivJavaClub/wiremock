@@ -1,0 +1,9 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/payments/fault"
+  },
+  "response": {
+    "fault": "CONNECTION_RESET_BY_PEER"
+  }
+}

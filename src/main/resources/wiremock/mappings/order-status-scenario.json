@@ -1,0 +1,36 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "Order42Status",
+      "requiredScenarioState": "Started",
+      "request": { "method": "GET", "url": "/orders/42/status" },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "orderId": 42, "status": "PROCESSING" }
+      },
+      "newScenarioState": "Shipped"
+    },
+    {
+      "scenarioName": "Order42Status",
+      "requiredScenarioState": "Shipped",
+      "request": { "method": "GET", "url": "/orders/42/status" },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "orderId": 42, "status": "SHIPPED" }
+      },
+      "newScenarioState": "Delivered"
+    },
+    {
+      "scenarioName": "Order42Status",
+      "requiredScenarioState": "Delivered",
+      "request": { "method": "GET", "url": "/orders/42/status" },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "orderId": 42, "status": "DELIVERED" }
+      }
+    }
+  ]
+}

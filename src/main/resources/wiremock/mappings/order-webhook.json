@@ -1,0 +1,29 @@
+{
+  "name": "order-with-webhook",
+  "request": {
+    "method": "POST",
+    "urlPath": "/order"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "status": "accepted"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "serveEventListeners": [
+    {
+      "name": "webhook",
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:9090/callback",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{ \"event\": \"ORDER_DONE\", \"orderId\": \"{{jsonPath originalRequest.body '$.orderId'}}\" }"
+      }
+    }
+  ]
+}

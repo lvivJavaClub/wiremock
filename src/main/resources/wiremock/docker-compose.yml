@@ -1,0 +1,16 @@
+services:
+  wiremock:
+    image: wiremock/wiremock:3.13.2
+    ports:
+      - "99:80"
+    volumes:
+      - ./__files:/home/wiremock/__files
+      - ./mappings:/home/wiremock/mappings
+      - ${HOME}/.m2/repository/org/wiremock/extensions/wiremock-faker-extension-standalone/0.2.0/wiremock-faker-extension-standalone-0.2.0.jar:/var/wiremock/extensions/wiremock-faker-extension-standalone-0.2.0.jar
+    entrypoint:
+      - /docker-entrypoint.sh
+      - --global-response-templating
+      - --disable-gzip
+      - --verbose
+      - --port
+      - "80"

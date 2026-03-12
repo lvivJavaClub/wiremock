@@ -1,0 +1,99 @@
+### limit 1000
+POST http://localhost:99/payments
+
+{
+  "amount": 100,
+  "currency": "USD"
+}
+
+### placeholder
+POST http://localhost:99/shipments
+Content-Type: application/json
+
+{
+  "orderId": 11
+}
+
+### file
+GET http://localhost:99/catalog
+
+### delay
+GET http://localhost:99/payments/health
+### exception
+GET http://localhost:99/payments/fault
+
+### stateful
+GET http://localhost:99/orders/42/status
+
+### auth
+POST http://localhost:99/login
+
+###
+GET http://localhost:99/profile
+Authorization: Bearer token-abc-123
+
+### admin API
+GET http://localhost:99/__admin/requests
+
+###
+POST http://localhost:99/__admin/requests/count
+Content-Type: application/json
+
+{
+  "method": "POST",
+  "url": "/payments"
+}
+
+### proxy
+GET http://localhost:99/proxy/posts/12
+
+
+### record
+POST http://localhost:99/__admin/requests/reset
+
+###
+
+POST http://localhost:99/__admin/recordings/start
+Content-Type: application/json
+
+{
+  "targetBaseUrl": "https://example.com",
+  "captureHeaders": {
+    "Accept": {
+      "caseInsensitive": true
+    }
+  },
+  "requestBodyPattern": {
+    "matcher": "equalToJson",
+    "ignoreArrayOrder": true,
+    "ignoreExtraElements": true
+  },
+  "persist": true
+}
+
+###
+
+GET http://localhost:99/
+
+###
+
+POST http://localhost:99/__admin/recordings/stop
+
+
+### Webhook
+POST http://localhost:99/order
+Content-Type: application/json
+
+{
+  "orderId": "111"
+}
+
+### check webhook
+GET http://localhost:99/__admin/requests
+
+### Faker extension https://wiremock.org/docs/faker-extension/#available-fake-data-types
+GET http://localhost:99/api/users/15
+
+
+###
+GET https://<CLOUD-URL>/json/1
